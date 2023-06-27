@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color: var(--main-text-color);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  font-family: Kanit;
+  text-transform: capitalize;
+  font-family: Poppins-Regular;
+}
+
+li {
+  list-style: none;
+  font-family: Poppins-Regular;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.old-interface {
+  background-color: var(--main-background);
+  height: 100vh;
+  font-family: IBM;
+  padding: 16px;
+}

@@ -1,0 +1,19 @@
+// General
+:root {
+  --main-text-color: hsl(0, 0%, 100%);
+}
+
+.old-interface {
+  --main-background: hsl(0, 0%, 0%);
+}
+
+$clrWhite: hsl(0, 0%, 100%);
+$mainPropdoColor: hsl(225, 100%, 14%);
+$clrBlack: hsl(0, 0%, 12%);
+
+// Breakpoints
+$sm-breakpoint: 576px;
+$md-breakpoint: 768px;
+$lg-breakpoint: 992px;
+$xl-breakpoint: 1200px;
+$xxl-breakpoint: 1400px;

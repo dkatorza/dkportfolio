@@ -1,0 +1,13 @@
+@import './setup/variables.scss';
+@import './setup/functions.scss';
+@import './setup/mixins.scss';
+@import './setup/typography.scss';
+
+// Basics
+@import './basics/base.scss';
+
+//Pages
+@import './pages/bios.scss';
+@import './pages/dos.scss';
+
+//Cmps
