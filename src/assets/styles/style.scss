@@ -7,8 +7,11 @@
 @import './basics/base.scss';
 
 //Pages
+@import './pages/boot.scss';
 @import './pages/bios.scss';
 @import './pages/dos.scss';
 
 //Cmps
 @import './components/modal.scss';
+@import './components/active-line.scss';
+@import './components/bios-menu.scss';

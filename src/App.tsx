@@ -1,12 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 import Dos from './pages/Dos';
 import Boot from './pages/Boot';
+import Bios from './pages/Bios';
 
 function App() {
   return (
     <>
       <Routes>
         <Route element={<Boot />} path='/Boot' />
+        <Route element={<Bios />} path='/Bios' />
         <Route element={<Dos />} path='/Dos' />
       </Routes>
     </>

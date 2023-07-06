@@ -1,0 +1,14 @@
+.active-line {
+  margin-left: 2px;
+  animation: 0.5s infinite lineFlicker;
+}
+
+@keyframes lineFlicker {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

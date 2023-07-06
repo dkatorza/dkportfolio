@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import biosLogo from '../assets/media/bios/bios-company-logo.png';
 import biosEnergyLogo from '../assets/media/bios/bios-loading-energy-logo.png';
 import Modal from '../components/Modal';
+import ActiveLine from '../components/ActiveLine';
+import { Link, useNavigate } from 'react-router-dom';
 
 type DetailLine = {
   lineName: string;
@@ -16,6 +18,8 @@ type Keys = {
 };
 
 const Boot = () => {
+  const navigate = useNavigate();
+
   const counterInterval = useRef<number>();
   const counterLineTimeout = useRef<number>();
   const lineRef = useRef<number>(0);
@@ -56,7 +60,7 @@ const Boot = () => {
     },
   });
 
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const [showBios, setShowBios] = useState<boolean>(false);
 
   useEffect(() => {
     window.addEventListener('keydown', getKeyStrokes);
@@ -120,20 +124,17 @@ const Boot = () => {
         },
       });
 
-      console.log('zzzzzzzzzz', keyDownCount.escape.isClicked);
       clearInterval(counterInterval.current);
       setLineAppearance();
     }
 
-    if (e.key === 'Delete' && !showModal) {
-      setShowModal(!showModal);
-      console.log('whysss');
+    if (e.key === 'Delete' && !showBios) {
+      navigate('/bios');
     }
   };
 
   return (
-    <div className='old-interface startup'>
-      {showModal && <Modal />}
+    <div className='old-interface boot'>
       <header>
         <div className='bios-energy-logo'>
           <img src={biosEnergyLogo} alt='bios energy logo' />
@@ -159,12 +160,7 @@ const Boot = () => {
               Memory Test : <span className='counter'>{memCounter}K</span>
               <span className='ok-check'>
                 OK
-                <span
-                  className={`${
-                    activeLine === 'memoryTest'
-                      ? 'active-line'
-                      : 'non-active-line'
-                  }`}></span>
+                {activeLine === 'memoryTest' && <ActiveLine />}
               </span>
             </span>
           </p>
@@ -172,26 +168,12 @@ const Boot = () => {
             <span
               style={{ display: lineDisplay[0].display ? 'block' : 'none' }}>
               Award Plug and Play BIOS Extension v1.0A
-              <span
-                className={`${
-                  activeLine === 'awardFirst'
-                    ? 'active-line'
-                    : 'non-active-line'
-                }`}>
-                _
-              </span>
+              {activeLine === 'awardFirst' && <ActiveLine />}
             </span>
             <span
               style={{ display: lineDisplay[1].display ? 'block' : 'none' }}>
               Copyright (C) 1995, Award Software, Inc.
-              <span
-                className={`${
-                  activeLine === 'awardSecond'
-                    ? 'active-line'
-                    : 'non-active-line'
-                }`}>
-                _
-              </span>
+              {activeLine === 'awardSecond' && <ActiveLine />}
             </span>
           </p>
           <p className='details-item'>
@@ -202,28 +184,14 @@ const Boot = () => {
             <span
               style={{ display: lineDisplay[3].display ? 'block' : 'none' }}>
               PMP Init Completed
-              <span
-                className={`${
-                  activeLine === 'initSecond'
-                    ? 'active-line'
-                    : 'non-active-line'
-                }`}>
-                _
-              </span>
+              {activeLine === 'initSecond' && <ActiveLine />}
             </span>
           </p>
           <p className='details-item'>
             <span
               style={{ display: lineDisplay[4].display ? 'block' : 'none' }}>
               Detecting HDD Primary Master ...[Press F4 to skip]
-              <span
-                className={`${
-                  activeLine === 'detectFirst'
-                    ? 'active-line'
-                    : 'non-active-line'
-                }`}>
-                _
-              </span>
+              {activeLine === 'detectFirst' && <ActiveLine />}
             </span>
           </p>
         </div>
